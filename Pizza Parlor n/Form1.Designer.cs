@@ -297,6 +297,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "BigBurgerBar";
             this.Text = "Big Burger Bar ";
+            this.Load += new System.EventHandler(this.BigBurgerBar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

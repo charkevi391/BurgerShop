@@ -17,22 +17,30 @@ namespace Pizza_Parlor_n
             InitializeComponent();
         }
 
-            private void titleLabel_Click(object sender, EventArgs e)
+        private void titleLabel_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            try
             {
+                //toppingNumber = Convert.ToDouble(textBox1.Text);
+                //double totalCost = BASE_PIZZA_COST + TOPPING_COST * toppingNumber;
+
+                //outputLabel.Text = "Your pizza costs " + totalCost.ToString("C");
 
             }
-
-            private void calculateButton_Click(object sender, EventArgs e)
+            catch
             {
-                try
-                {
-                    toppingNumber = Convert.ToDouble(textBox1.Text);
-                    double totalCost = BASE_PIZZA_COST + TOPPING_COST * toppingNumber;
+                //outputLabel.Text = "has to be a #";
+            }
+        }
 
-                    outputLabel.Text = "Your pizza costs " + totalCost.ToString("C");
+        private void BigBurgerBar_Load(object sender, EventArgs e)
+        {
 
-                }
-                catch
-                {
-                    outputLabel.Text = "has to be a #";
-                }
+        }
+    }
+}
