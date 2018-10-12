@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.burgerBox = new System.Windows.Forms.TextBox();
+            this.friesBox = new System.Windows.Forms.MaskedTextBox();
+            this.drinkBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.calcButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,37 +44,35 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tenderedBox = new System.Windows.Forms.TextBox();
+            this.changeButton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // burgerBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(187, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.burgerBox.Location = new System.Drawing.Point(187, 34);
+            this.burgerBox.Name = "burgerBox";
+            this.burgerBox.Size = new System.Drawing.Size(100, 20);
+            this.burgerBox.TabIndex = 0;
             // 
-            // maskedTextBox1
+            // friesBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(187, 85);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 1;
+            this.friesBox.Location = new System.Drawing.Point(187, 85);
+            this.friesBox.Name = "friesBox";
+            this.friesBox.Size = new System.Drawing.Size(100, 20);
+            this.friesBox.TabIndex = 1;
             // 
-            // maskedTextBox2
+            // drinkBox
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(187, 137);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox2.TabIndex = 2;
+            this.drinkBox.Location = new System.Drawing.Point(187, 137);
+            this.drinkBox.Name = "drinkBox";
+            this.drinkBox.Size = new System.Drawing.Size(100, 20);
+            this.drinkBox.TabIndex = 2;
+            this.drinkBox.ValidatingType = typeof(int);
             // 
             // label1
             // 
@@ -112,14 +110,15 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Big Burger Bar ";
             // 
-            // button1
+            // calcButton
             // 
-            this.button1.Location = new System.Drawing.Point(80, 177);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 24);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Calculate";
-            this.button1.UseVisualStyleBackColor = true;
+            this.calcButton.Location = new System.Drawing.Point(80, 177);
+            this.calcButton.Name = "calcButton";
+            this.calcButton.Size = new System.Drawing.Size(153, 24);
+            this.calcButton.TabIndex = 7;
+            this.calcButton.Text = "Calculate";
+            this.calcButton.UseVisualStyleBackColor = true;
+            this.calcButton.Click += new System.EventHandler(this.calcButton_Click);
             // 
             // label5
             // 
@@ -189,21 +188,22 @@
             this.label12.TabIndex = 15;
             this.label12.Text = "Tendered";
             // 
-            // textBox2
+            // tenderedBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(187, 397);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 16;
+            this.tenderedBox.Location = new System.Drawing.Point(187, 397);
+            this.tenderedBox.Name = "tenderedBox";
+            this.tenderedBox.Size = new System.Drawing.Size(100, 20);
+            this.tenderedBox.TabIndex = 16;
             // 
-            // button2
+            // changeButton
             // 
-            this.button2.Location = new System.Drawing.Point(80, 436);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Calculate Change ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.changeButton.Location = new System.Drawing.Point(80, 436);
+            this.changeButton.Name = "changeButton";
+            this.changeButton.Size = new System.Drawing.Size(153, 23);
+            this.changeButton.TabIndex = 17;
+            this.changeButton.Text = "Calculate Change ";
+            this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // label13
             // 
@@ -230,55 +230,27 @@
             this.button3.TabIndex = 20;
             this.button3.Text = "Print Recipt";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label15
             // 
-            this.label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label15.Location = new System.Drawing.Point(651, 34);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(95, 9);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(349, 486);
+            this.label15.Size = new System.Drawing.Size(102, 13);
             this.label15.TabIndex = 21;
-            // 
-            // label16
-            // 
-            this.label16.Location = new System.Drawing.Point(777, 56);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 23);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Big Burger Bar ";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(672, 91);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(87, 13);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "Stratford, Ontario";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(907, 92);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(67, 13);
-            this.label18.TabIndex = 24;
-            this.label18.Text = "Order #1337";
+            this.label15.Text = "Has to be a # Value";
+            this.label15.Visible = false;
             // 
             // BigBurgerBar
             // 
             this.ClientSize = new System.Drawing.Size(1052, 550);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.changeButton);
+            this.Controls.Add(this.tenderedBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -287,17 +259,16 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.calcButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.drinkBox);
+            this.Controls.Add(this.friesBox);
+            this.Controls.Add(this.burgerBox);
             this.Name = "BigBurgerBar";
             this.Text = "Big Burger Bar ";
-            this.Load += new System.EventHandler(this.BigBurgerBar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,14 +276,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.TextBox burgerBox;
+        private System.Windows.Forms.MaskedTextBox friesBox;
+        private System.Windows.Forms.MaskedTextBox drinkBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button calcButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -321,15 +292,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox tenderedBox;
+        private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
     }
 }
 
