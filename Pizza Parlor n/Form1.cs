@@ -47,18 +47,19 @@ namespace Pizza_Parlor_n
                 drinksPurchased = Convert.ToDouble(drinkBox.Text);
 
                 subTotal = burgersPurchased * BGR_CST + friesPurchased * FRI_CST + drinksPurchased * DRI_CST;
-                label8.Text = "$" + subTotal;
+                subOutput.Text = subTotal.ToString("C");
 
                 taxTotal = subTotal * HST_TAX;
-                label9.Text = "$" + taxTotal;
+                taxOutput.Text = taxTotal.ToString("C");
 
                 totalCost = subTotal * HST_TAX + subTotal;
-                label10.Text = "$" + totalCost;
+                totalOutput.Text = totalCost.ToString("C");
             }
             catch
             {
-                label15.Visible = true;
-
+                valueLabel.Visible = true;
+                Thread.Sleep(5000);
+                valueLabel.Visible = false;
             }
 
 
@@ -76,16 +77,18 @@ namespace Pizza_Parlor_n
                 totalCost = subTotal * HST_TAX + subTotal;
                 ammountTendered = Convert.ToDouble(tenderedBox.Text);
                 changeGiven = ammountTendered - totalCost;
-                label14.Text = changeGiven.ToString("C");
+                changeOutput.Text = changeGiven.ToString("C");
             }
 
             catch
             {
-                label15.Visible = true;
+                valueLabel.Visible = true;
+                Thread.Sleep(5000);
+                valueLabel.Visible = false;          
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void reciptButton_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
             Pen blackPen = new Pen(Color.Black, 10);
@@ -120,32 +123,66 @@ namespace Pizza_Parlor_n
             g.DrawString("Big Burger Bar", normalFont, blackBrush, 620, 100);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Hamburgers        x" + burgerBox.Text + " @ 2.49" , normalFont, blackBrush, 620, 120);
+            g.DrawString("Hamburgers        x" + burgerBox.Text + " @ 2.49", normalFont, blackBrush, 620, 140);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Fries             x" + friesBox.Text + " @ 1.89", normalFont, blackBrush, 620, 140);
+            g.DrawString("Fries             x" + friesBox.Text + " @ 1.89", normalFont, blackBrush, 620, 180);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Drinks            x" + drinkBox.Text + " @ 0.99", normalFont, blackBrush, 620, 160);
+            g.DrawString("Drinks            x" + drinkBox.Text + " @ 0.99", normalFont, blackBrush, 620, 220);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("SubTotal          $" + subTotal, normalFont, blackBrush, 620, 180);
+            g.DrawString("SubTotal             $" + subTotal, normalFont, blackBrush, 620, 260);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Tax               $" + taxTotal, normalFont, blackBrush, 620, 200);
+            g.DrawString("Tax                   " + taxTotal.ToString("C"), normalFont, blackBrush, 620, 300);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Total             $" + totalCost, normalFont, blackBrush, 620, 220);
+            g.DrawString("Total                " + totalCost.ToString("C"), normalFont, blackBrush, 620, 340);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Tendered          $" + ammountTendered, normalFont, blackBrush, 620, 240);
+            g.DrawString("Tendered             $" + ammountTendered, normalFont, blackBrush, 620, 380);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Change            $" + changeGiven, normalFont, blackBrush, 620, 260);
+            g.DrawString("Change                " + changeGiven.ToString("C"), normalFont, blackBrush, 620, 420);
             player.Play();
             Thread.Sleep(1000);
-            g.DrawString("Thanks for eating here! :) ", normalFont, blackBrush, 620, 280);
+            g.DrawString("Thanks for eating here! :) ", normalFont, blackBrush, 620, 470);
             player.Play();
+
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            Pen blackPen = new Pen(Color.Black, 10);
+            SolidBrush whiteBrush = new SolidBrush(Color.White);
+            SolidBrush blackBrush = new SolidBrush(Color.Black);
+            Font titleFont = new Font("Times New Roman", 25, FontStyle.Bold);
+            Font boldFont = new Font("Consolas", 15, FontStyle.Bold);
+            Font normalFont = new Font("Consolas", 15);
+            Font bigFont = new Font("Consolas", 30);
+            SoundPlayer player = new SoundPlayer(Properties.Resources.Test);
+
+            double burgersPurchased = 0;
+            double friesPurchased = 0;
+            double drinksPurchased = 0;
+            double totalCost = 0;
+            double taxTotal = 0;
+            double subTotal = 0;
+            double ammountTendered = 0;
+            double changeGiven = 0;
+
+            burgerBox.Text = "";
+            friesBox.Text = "";
+            drinkBox.Text = "";
+            subOutput.Text = "";
+            totalOutput.Text = "";
+            taxOutput.Text = "";
+            tenderedBox.Text = "";
+            changeOutput.Text = "";
+
+            g.FillRectangle(whiteBrush, 580, 10, 440, 520);
 
         }
     }
